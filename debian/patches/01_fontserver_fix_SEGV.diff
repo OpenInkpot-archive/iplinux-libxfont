@@ -1,0 +1,23 @@
+Fix a SEGV in fs_read_list_info() to correctly handle a reply type of
+FS_Error from fsListFontsWithXInfoReply().  This mirrors a similar check in
+fs_read_open_font(), fs_read_query_info(), fs_read_extent_info(),
+fs_read_glyphs(), and fs_read_list(), so why it was missing from this
+function was a mystery.
+
+This patch by Guillem Jover.  See Debian #294320.
+
+Not submitted to X.Org yet.
+
+Index: libXfont-X11R7.0-1.0.0/src/fc/fserve.c
+===================================================================
+--- libXfont-X11R7.0-1.0.0.orig/src/fc/fserve.c	2005-12-30 14:50:44.000000000 -0500
++++ libXfont-X11R7.0-1.0.0/src/fc/fserve.c	2006-02-26 18:34:58.000000000 -0500
+@@ -2366,7 +2366,7 @@
+     _fs_free_props (&binfo->info);
+ 
+     rep = (fsListFontsWithXInfoReply *) fs_get_reply (conn, &ret);
+-    if (rep == 0)
++    if (!rep || rep->type == FS_Error)
+     {
+ 	if (ret == FSIO_BLOCK)
+ 	    return StillWorking;

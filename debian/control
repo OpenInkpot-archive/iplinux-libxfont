@@ -1,0 +1,56 @@
+Source: libxfont
+Section: x11
+Priority: optional
+Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
+Uploaders: David Nusinow <dnusinow@debian.org>, Branden Robinson <branden@debian.org>, Fabio M. Di Nitto <fabbione@fabbione.net>
+Build-Depends: debhelper (>= 4.0.0), pkg-config, libfontenc-dev, x11proto-core-dev, xtrans-dev, x11proto-fonts-dev, libfreetype6-dev, quilt, libx11-dev
+Standards-Version: 3.6.1.0
+
+Package: libxfont1
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: X11 font rasterisation library
+ libXfont provides various services for X servers, most notably font
+ selection and rasterisation (through external libraries).
+ .
+ More information about X.Org can be found at:
+ <URL:http://xorg.freedesktop.org>
+ <URL:http://lists.freedesktop.org/mailman/listinfo/xorg>
+ .
+ This module can be found as the module 'lib/Xfont' at
+ :pserver:anoncvs@cvs.freedesktop.org:/cvs/xorg
+
+Package: libxfont1-dbg
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libxfont1 (= ${Source-Version})
+Description: X11 font rasterisation library (debug package)
+ libXfont provides various services for X servers, most notably font
+ selection and rasterisation (through external libraries).
+ .
+ This package contains the debug versions of the library found in libxfont1.
+ Non-developers likely have little use for this package.
+ .
+ More information about X.Org can be found at:
+ <URL:http://xorg.freedesktop.org>
+ <URL:http://lists.freedesktop.org/mailman/listinfo/xorg>
+ .
+ This module can be found as the module 'lib/Xfont' at
+ :pserver:anoncvs@cvs.freedesktop.org:/cvs/xorg
+
+Package: libxfont-dev
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libxfont1 (= ${Source-Version}), libx11-dev, x11proto-core-dev, x11proto-fonts-dev, libfreetype6-dev, libfontenc-dev (>= 1:1.0.1-1), xtrans-dev
+Replaces: xlibs-static-dev (<< 6.8.2-51)
+Description: X11 font rasterisation library (development headers)
+ libXfont provides various services for X servers, most notably font
+ selection and rasterisation (through external libraries).
+ .
+ This package contains the development headers for the library found in
+ libxfont1.  Non-developers likely have little use for this package.
+ .
+ More information about X.Org can be found at:
+ <URL:http://xorg.freedesktop.org>
+ <URL:http://lists.freedesktop.org/mailman/listinfo/xorg>
+ .
+ This module can be found as the module 'lib/Xfont' at
+ :pserver:anoncvs@cvs.freedesktop.org:/cvs/xorg

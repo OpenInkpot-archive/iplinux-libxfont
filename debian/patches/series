@@ -1,0 +1,2 @@
+01_fontserver_fix_SEGV.diff
+02_no_ft_internals_dt_jc.patch
