@@ -3,6 +3,8 @@ Section: x11
 Priority: optional
 Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
 Uploaders: David Nusinow <dnusinow@debian.org>, Branden Robinson <branden@debian.org>, Fabio M. Di Nitto <fabbione@fabbione.net>
+XCS-Cross-Host-Build-Depends: debhelper (>= 4.0.0), pkg-config, quilt
+XCS-Cross-Build-Depends: libfontenc-dev, x11proto-core-dev, xtrans-dev, x11proto-fonts-dev, libfreetype6-dev, libx11-dev
 Build-Depends: debhelper (>= 4.0.0), pkg-config, libfontenc-dev, x11proto-core-dev, xtrans-dev, x11proto-fonts-dev, libfreetype6-dev, quilt, libx11-dev
 Standards-Version: 3.6.1.0
 
