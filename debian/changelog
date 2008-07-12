@@ -1,3 +1,11 @@
+libxfont (1:1.0.0-5.oi1) unstable; urgency=low
+
+  * First OI build:
+    - -dbg package moved to debug section.
+    - -dev package moved to libdevel section.
+
+ -- Mikhail Gusarov <dottedmag@dottedmag.net>  Sat, 12 Jul 2008 19:04:40 +0700
+
 libxfont (1:1.0.0-5) unstable; urgency=low
 
   * New build dependencies

@@ -22,6 +22,7 @@ Description: X11 font rasterisation library
  :pserver:anoncvs@cvs.freedesktop.org:/cvs/xorg
 
 Package: libxfont1-dbg
+Section: debug
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, libxfont1 (= ${Source-Version})
 Description: X11 font rasterisation library (debug package)
@@ -39,6 +40,7 @@ Description: X11 font rasterisation library (debug package)
  :pserver:anoncvs@cvs.freedesktop.org:/cvs/xorg
 
 Package: libxfont-dev
+Section: libdevel
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, libxfont1 (= ${Source-Version}), libx11-dev, x11proto-core-dev, x11proto-fonts-dev, libfreetype6-dev, libfontenc-dev (>= 1:1.0.1-1), xtrans-dev
 Replaces: xlibs-static-dev (<< 6.8.2-51)
