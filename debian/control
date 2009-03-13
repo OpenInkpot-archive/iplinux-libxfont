@@ -1,0 +1,47 @@
+Source: libxfont
+Section: gui
+Priority: optional
+Maintainer: Mikhail Gusarov <dottedmag@dottedmag.net>
+XCS-Cross-Host-Build-Depends: debhelper (>= 7), pkg-config, autoconf, automake, libtool, xorg-util-macros, xtrans-dev (>= 1.2.3-2)
+XCS-Cross-Build-Depends: libfontenc-dev, x11proto-core-dev, x11proto-fonts-dev
+Build-Depends: debhelper (>= 7), pkg-config, autoconf, automake, libtool, xorg-util-macros, libfontenc-dev, x11proto-core-dev, xtrans-dev (>= 1.2.3-2), x11proto-fonts-dev
+Standards-Version: 3.8.0
+
+Package: libxfont1
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: X11 font rasterisation library
+ libXfont provides various services for X servers, most notably font
+ selection and rasterisation (through external libraries).
+ .
+ More information about X.Org can be found at:
+ <URL:http://xorg.freedesktop.org>
+ <URL:http://lists.freedesktop.org/mailman/listinfo/xorg>
+
+Package: libxfont1-dbg
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libxfont1 (= ${binary:Version})
+Description: X11 font rasterisation library (debug package)
+ libXfont provides various services for X servers, most notably font
+ selection and rasterisation (through external libraries).
+ .
+ This package contains the debug versions of the library found in libxfont1.
+ Non-developers likely have little use for this package.
+ .
+ More information about X.Org can be found at:
+ <URL:http://xorg.freedesktop.org>
+ <URL:http://lists.freedesktop.org/mailman/listinfo/xorg>
+
+Package: libxfont-dev
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libxfont1 (= ${binary:Version}), x11proto-core-dev, x11proto-fonts-dev, libfontenc-dev (>= 1:1.0.1-1)
+Description: X11 font rasterisation library (development headers)
+ libXfont provides various services for X servers, most notably font
+ selection and rasterisation (through external libraries).
+ .
+ This package contains the development headers for the library found in
+ libxfont1.  Non-developers likely have little use for this package.
+ .
+ More information about X.Org can be found at:
+ <URL:http://xorg.freedesktop.org>
+ <URL:http://lists.freedesktop.org/mailman/listinfo/xorg>

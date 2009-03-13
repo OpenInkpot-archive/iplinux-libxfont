@@ -1,0 +1,54 @@
+libxfont (1:1.4.0-1) asimov; urgency=low
+
+  * New upstream release.
+  * First build for IPlinux.
+
+ -- Mikhail Gusarov <dottedmag@dottedmag.net>  Fri, 13 Mar 2009 20:46:52 +0600
+
+libxfont (1:1.0.0-5) unstable; urgency=low
+
+  * New build dependencies
+
+ -- Sergey Lapin <slapin@slind.org>  Tue, 29 May 2007 19:10:42 +0400
+
+libxfont (1:1.0.0-4) unstable; urgency=low
+
+  * Reorder makeshlib command in rules file so that ldconfig is run
+    properly. Thanks Drew Parsons and Steve Langasek.
+  * Add quilt to build-depends
+
+ -- David Nusinow <dnusinow@debian.org>  Wed, 19 Apr 2006 00:10:33 -0400
+
+libxfont (1:1.0.0-3) unstable; urgency=low
+
+  * Upload to unstable
+
+ -- David Nusinow <dnusinow@debian.org>  Thu, 23 Mar 2006 22:44:39 -0500
+
+libxfont (1:1.0.0-2) experimental; urgency=low
+
+  * Have libxfont-dev depend on libfreetype6-dev and libfontenc-dev. Thanks
+    Eugene Konev.
+  * Port patches from trunk
+    + general/099v_fontserver_fix_SEGV.diff
+
+ -- David Nusinow <dnusinow@debian.org>  Sun, 26 Feb 2006 18:35:44 -0500
+
+libxfont (1:1.0.0-1) experimental; urgency=low
+
+  * First upload to Debian
+
+ -- David Nusinow <dnusinow@debian.org>  Thu, 29 Dec 2005 20:51:40 -0500
+
+libxfont (1:0.99.0+cvs.20050909-1) breezy; urgency=low
+
+  * Fix the XFONT_FONTCACHE/FONTCACHE define in configure.ac (close:
+    Ubuntu#14319).
+
+ -- Daniel Stone <daniel.stone@ubuntu.com>  Fri,  9 Sep 2005 15:39:57 +1000
+
+libxfont (1:0.99.0-1) breezy; urgency=low
+
+  * First libxfont release.
+
+ -- Daniel Stone <daniel.stone@ubuntu.com>  Mon, 16 May 2005 22:10:17 +1000
