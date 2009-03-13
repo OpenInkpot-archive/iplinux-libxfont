@@ -30,7 +30,11 @@ else
 	confflags += --build=$(DEB_BUILD_GNU_TYPE) --host=$(DEB_HOST_GNU_TYPE)
 endif
 
-confflags += --disable-fontcache --disable-fc --disable-IPv6
+confflags += --disable-fontcache --disable-fc --disable-IPv6 \
+             --disable-freetype \
+             --disable-pcfformat \
+             --disable-bdfformat \
+             --disable-snfformat
 
 build: build-stamp
 build-stamp:
@@ -40,11 +44,6 @@ build-stamp:
 	cd obj-$(DEB_BUILD_GNU_TYPE) && \
 	../autogen.sh --prefix=/usr --mandir=\$${prefix}/share/man \
 	             --infodir=\$${prefix}/share/info $(confflags) \
-	             --disable-freetype \
-	             --disable-pcfformat \
-	             --disable-bdfformat \
-	             --disable-snfformat \
-	             --disable-fc \
 	             CFLAGS="$(CFLAGS)" 
 	cd obj-$(DEB_BUILD_GNU_TYPE) && $(MAKE)
 
@@ -75,9 +74,7 @@ binary-arch: build install
 	dh_testdir
 	dh_testroot
 
-#	dh_installdocs
 	dh_install --sourcedir=debian/tmp
-#	dh_installchangelogs
 	dh_link
 	dh_strip --dbg-package=$(PACKAGE)-dbg
 	dh_compress
