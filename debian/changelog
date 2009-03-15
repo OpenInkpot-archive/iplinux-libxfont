@@ -1,3 +1,9 @@
+libxfont (1:1.4.0-3) asimov; urgency=low
+
+  * XFS protocol enabled, server wants it.
+
+ -- Mikhail Gusarov <dottedmag@dottedmag.net>  Sun, 15 Mar 2009 14:40:22 +0600
+
 libxfont (1:1.4.0-2) asimov; urgency=low
 
   * debug files moved to -dbg package.
