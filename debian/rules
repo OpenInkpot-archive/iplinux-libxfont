@@ -30,7 +30,7 @@ else
 	confflags += --build=$(DEB_BUILD_GNU_TYPE) --host=$(DEB_HOST_GNU_TYPE)
 endif
 
-confflags += --disable-fontcache --disable-fc --disable-IPv6 \
+confflags += --disable-fontcache --disable-IPv6 \
              --disable-freetype \
              --disable-pcfformat \
              --disable-bdfformat \
