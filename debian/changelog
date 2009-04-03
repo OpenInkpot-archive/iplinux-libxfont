@@ -1,3 +1,9 @@
+libxfont (1:1.4.0-4) asimov; urgency=low
+
+  * Removed accidentally committed debug statements.
+
+ -- Mikhail Gusarov <dottedmag@dottedmag.net>  Fri, 03 Apr 2009 18:46:24 +0700
+
 libxfont (1:1.4.0-3+b1) asimov; urgency=low
 
   * Rebuild for new toolchain.
