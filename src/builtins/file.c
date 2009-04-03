@@ -99,8 +99,6 @@ BuiltinFileOpen (char *name)
     BuiltinIOPtr    io;
     BufFilePtr	    raw, cooked;
 
-    fprintf(stderr, "BuiltinFileOpen %s\n", name);
-
     if (*name == '/') name++;
     for (i = 0; i < builtin_files_count; i++)
 	if (!strcmp (name, builtin_files[i].name))

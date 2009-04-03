@@ -76,8 +76,6 @@ static int FontFileOpenBitmapNCF (FontPathElementPtr fpe, FontPtr *pFont,
 int
 FontFileNameCheck (char *name)
 {
-    fprintf(stderr, "FontFileNameCheck %s\n", name);
-
 #ifndef NCD
 #if defined(WIN32)
     /* OS/2 uses D:/... as a path name for fonts, so accept this as a valid
@@ -279,14 +277,10 @@ FontFileOpenFont (pointer client, FontPathElementPtr fpe, Mask flags,
     Bool		noSpecificSize;
     int			nranges;
     fsRange		*ranges;
-
-    fprintf(stderr, "FontFileOpenFont %s %d %d\n", name, namelen, MAXFONTNAMELEN);
-
+    
     if (namelen >= MAXFONTNAMELEN)
 	return AllocError;
     dir = (FontDirectoryPtr) fpe->private;
-
-    fprintf(stderr, "private: %p\n", fpe->private);
 
     /* Match non-scalable pattern */
     CopyISOLatin1Lowered (lowerName, name, namelen);

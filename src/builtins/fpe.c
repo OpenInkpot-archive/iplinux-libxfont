@@ -38,8 +38,6 @@ static const char builtin_fonts[] = "built-ins";
 static int
 BuiltinNameCheck (char *name)
 {
-    fprintf(stderr, "BuiltinNameCheck %s\n", name);
-
     return (strcmp (name, builtin_fonts) == 0);
 }
 
@@ -49,16 +47,10 @@ BuiltinInitFPE (FontPathElementPtr fpe)
     int			status;
     FontDirectoryPtr	dir;
 
-    fprintf(stderr, "BuiltinInitFPE\n");
-
     status = BuiltinReadDirectory (fpe->name, &dir);
 
     if (status == Successful)
-    {
-        fprintf(stderr, "Private: %p\n", (pointer) dir);
 	fpe->private = (pointer) dir;
-    }
-    
     return status;
 }
 
@@ -80,13 +72,9 @@ BuiltinFreeFPE (FontPathElementPtr fpe)
     return Successful;
 }
 
-#include <stdio.h>
-
 void
 BuiltinRegisterFpeFunctions(void)
 {
-    fprintf(stderr, "BuiltinRegisterFpeFunctions\n");
-
     BuiltinRegisterFontFileFunctions ();
 
     font_file_type = RegisterFPEFunctions(BuiltinNameCheck,
