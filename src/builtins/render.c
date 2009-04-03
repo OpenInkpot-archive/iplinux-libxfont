@@ -47,6 +47,8 @@ BuiltinOpenBitmap (FontPathElementPtr fpe, FontPtr *ppFont, int	flags,
                 scan,
 		image;
 
+    fprintf(stderr, "BuiltinOpenBitmap %s\n", fileName);
+
     file = BuiltinFileOpen (fileName);
     if (!file)
 	return BadFontName;
