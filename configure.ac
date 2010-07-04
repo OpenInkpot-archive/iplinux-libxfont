@@ -20,12 +20,14 @@ dnl  PERFORMANCE OF THIS SOFTWARE.
 dnl
 dnl Process this file with autoconf to create configure.
 
-AC_PREREQ([2.57])
+AC_PREREQ([2.60])
 
 AC_INIT([libXfont],
-	1.4.0,
+	1.4.2,
 	[https://bugs.freedesktop.org/enter_bug.cgi?product=xorg],
 	libXfont)
+# Autoheader generates config.h.in. No new lines allowed in the list.
+AC_CONFIG_HEADERS([config.h include/X11/fonts/fontconf.h])
 dnl
 dnl This is the package version number, not the shared library
 dnl version.  This same version number must appear in Xfont.h
@@ -33,12 +35,16 @@ dnl Yes, it is a pain to synchronize version numbers.  Unfortunately, it's
 dnl not possible to extract the version number here from Xfont.h
 dnl
 AM_INIT_AUTOMAKE([foreign dist-bzip2])
-AM_CONFIG_HEADER(config.h)
-AC_CONFIG_HEADERS([include/X11/fonts/fontconf.h])
+AM_MAINTAINER_MODE
 
-# Require xorg-macros version >= 1.2.0 for XORG_CWARNFLAGS & XORG_CHANGELOG
-m4_ifndef([XORG_MACROS_VERSION], [AC_FATAL([must install xorg-macros 1.2 or later before running autoconf/autogen])])
-XORG_MACROS_VERSION(1.2)
+# Require xorg-macros: XORG_DEFAULT_OPTIONS
+m4_ifndef([XORG_MACROS_VERSION],
+          [m4_fatal([must install xorg-macros 1.6 or later before running autoconf/autogen])])
+XORG_MACROS_VERSION(1.6)
+XORG_DEFAULT_OPTIONS
+XORG_ENABLE_DEVEL_DOCS
+XORG_WITH_XMLTO(0.0.20)
+XORG_WITH_FOP
 
 # Check for progs
 AC_PROG_CC
@@ -50,15 +56,6 @@ PKG_PROG_PKG_CONFIG
 # Look for headers
 AC_CHECK_HEADERS([endian.h poll.h sys/poll.h])
 AC_CHECK_FUNCS([poll])
-
-m4_ifdef([AS_HELP_STRING], , [m4_define([AS_HELP_STRING], m4_defn([AC_HELP_STRING]))])
-
-DEFAULT_ENCODINGSDIR=${libdir}/X11/fonts/encodings
-AC_ARG_WITH(encodingsdir,
-	AS_HELP_STRING([--with-encodingsdir=ENCODINGSDIR], [Path to font encodings]),
-	[ENCODINGSDIR="$withval"],
-	[ENCODINGSDIR="$DEFAULT_ENCODINGSDIR"])
-AC_SUBST(ENCODINGSDIR)
 
 #
 # select libraries to include
@@ -189,8 +186,6 @@ PKG_CHECK_MODULES(XFONT, xproto xtrans fontsproto fontenc)
 # Transport selection macro from xtrans.m4
 XTRANS_CONNECTION_FLAGS
 
-XORG_CWARNFLAGS
-
 case $host_os in
     linux*)
         OS_CFLAGS="-D_XOPEN_SOURCE"
@@ -203,9 +198,6 @@ case $host_os in
         ;;
 esac
 AC_SUBST([OS_CFLAGS])
-
-XORG_RELEASE_VERSION
-XORG_CHANGELOG
 
 AC_OUTPUT([Makefile
 	   src/Makefile
