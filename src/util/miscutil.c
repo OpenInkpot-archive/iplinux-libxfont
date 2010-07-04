@@ -54,8 +54,12 @@ weak long serverGeneration = 1;
 weak void
 register_fpe_functions (void)
 {
+#ifdef XFONT_BUILTINS
     BuiltinRegisterFpeFunctions();
+#endif
+#ifdef XFONT_FONTFILE
     FontFileRegisterFpeFunctions();
+#endif
 #ifdef XFONT_FC
     fs_register_fpe_functions();
 #endif
